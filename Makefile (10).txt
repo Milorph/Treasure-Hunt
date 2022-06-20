@@ -1,0 +1,14 @@
+CC=g++
+CFLAGS=-g -I.
+DEPS = quiz.hpp question.hpp
+OBJ = main.o quiz.o question.o
+
+
+%.o: %.cpp $(DEPS)
+	$(CC) -c -o $@ $< $(CFLAGS)
+
+run: $(OBJ)
+	$(CC) -o $@ $^ $(CFLAGS)
+
+clean:
+	rm $(OBJ) run
